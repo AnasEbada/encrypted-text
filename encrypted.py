@@ -1,4 +1,8 @@
-encletrs = {
+import arabic_reshaper
+from bidi.algorithm import get_display
+import sys
+
+dictionary = {
     "`":"ذ",
     "q":"ض",
     "w":"ص",
@@ -33,5 +37,51 @@ encletrs = {
     ",":"و",
     ".":"ز",
     "/":"ظ",
+    " ":" "
 }
+
+def prepare(input: str):
+    lower = input.lower()
+    encrypted = []
+    for i in lower:
+        encrypted.append(i)
+    return encrypted
+
+def decrypt(encrypted):
+    decrypted = []
+    for letter in encrypted:
+        decrypted.append(dictionary[letter])
+    return decrypted
+
+def word(list):
+    raw = "".join(list)
+    reshaped = arabic_reshaper.reshape(raw) 
+    output = get_display(reshaped)
+    return(output)
+
+def main():
+    while True:
+        theinput = input("Enter The Encrypted Word: ")
+        print('')
+        print("The Decrypted Word Is:")
+        print(word(decrypt(prepare(theinput))))
+        while True:
+            ask = input("Another word (yes / no): ").lower()
+            if ask == "yes":
+                print('')
+                print("-------------------------------")
+                print('')
+                break
+            if ask == "no":
+                exit()
+            else:
+                continue
+
+main()
+
+            
+
+        
+
+            
 
