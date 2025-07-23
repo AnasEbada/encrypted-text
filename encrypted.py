@@ -67,11 +67,11 @@ def main():
         print("The Decrypted Word Is:")
         print(word(decrypt(prepare(theinput))))
         while True:
+            print('')
             ask = input("Another word (yes / no): ").lower()
             if ask == "yes":
                 print('')
                 print("-------------------------------")
-                print('')
                 break
             if ask == "no":
                 exit()
