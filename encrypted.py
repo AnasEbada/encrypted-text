@@ -61,6 +61,7 @@ def word(list):
 
 def main():
     while True:
+        print('')
         theinput = input("Enter The Encrypted Word: ")
         print('')
         print("The Decrypted Word Is:")
